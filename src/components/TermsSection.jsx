@@ -1,3 +1,7 @@
+import Card from './ui/Card'
+import SectionHeader from './ui/SectionHeader'
+import { useInView } from '../hooks/useInView'
+
 const badgeMap = {
   purple: 'bg-purple-500',
   blue: 'bg-blue-500',
@@ -10,16 +14,24 @@ const badgeMap = {
 }
 
 export default function TermsSection({ terms }) {
+  const [sectionRef, isInView] = useInView({ threshold: 0.15, triggerOnce: true })
+
   return (
-    <section id="terms" className="mx-auto max-w-6xl px-4 py-20">
-      <h2 className="mb-8 text-3xl font-bold">スクラム用語集</h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {terms.map((item) => (
-          <article key={item.id} className="rounded-2xl border border-slate-700 bg-slate-900 p-5 shadow transition hover:-translate-y-1 hover:shadow-lg">
+    <section
+      id="terms"
+      ref={sectionRef}
+      className={`mx-auto max-w-6xl px-4 py-20 transition-all duration-500 ease-out ${
+        isInView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+      }`}
+    >
+      <SectionHeader label="terms" title="スクラム用語集" />
+      <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {terms.map((item, idx) => (
+          <Card key={item.id} className={`h-full flex flex-col bg-slate-900 transition-all duration-500 ${isInView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'}`} style={{ transitionDelay: `${idx * 40}ms` }}>
             <span className={`mb-3 inline-block h-2 w-12 rounded ${badgeMap[item.color] || 'bg-slate-500'}`} />
             <h3 className="mb-2 text-lg font-semibold">{item.term}</h3>
-            <p className="text-sm text-slate-300">{item.definition}</p>
-          </article>
+            <p className="flex-grow text-sm leading-relaxed text-slate-300">{item.definition}</p>
+          </Card>
         ))}
       </div>
     </section>

@@ -21,8 +21,14 @@ import {
 function App() {
   return (
     <div className="bg-slate-950 text-slate-100">
+      <a
+        href="#main"
+        className="sr-only absolute left-3 top-3 z-[60] rounded bg-indigo-600 px-3 py-2 text-sm text-white focus:not-sr-only focus:outline-none focus:ring-2 focus:ring-indigo-300"
+      >
+        メインコンテンツへスキップ
+      </a>
       <Navbar />
-      <main>
+      <main id="main">
         <Hero />
         <TermsSection terms={terms} />
         <RolesSection roles={roles} />

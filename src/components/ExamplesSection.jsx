@@ -1,6 +1,16 @@
+import { useInView } from '../hooks/useInView'
+
 export default function ExamplesSection({ examples }) {
+  const [sectionRef, isInView] = useInView({ threshold: 0.15, triggerOnce: true })
+
   return (
-    <section id="examples" className="mx-auto max-w-6xl px-4 py-20">
+    <section
+      id="examples"
+      ref={sectionRef}
+      className={`mx-auto max-w-6xl px-4 py-20 transition-all duration-500 ease-out ${
+        isInView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+      }`}
+    >
       <h2 className="mb-8 text-3xl font-bold">実例・ケーススタディ</h2>
       <div className="space-y-5">
         {examples.map((item) => (

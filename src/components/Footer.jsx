@@ -11,7 +11,15 @@ export default function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-sm text-slate-400 md:flex-row">
         <p>スクラム開発 完全ガイド</p>
         <div className="flex gap-3">
-          {links.map((link) => <a key={link.id} href={`#${link.id}`} className="hover:text-slate-200">{link.label}</a>)}
+          {links.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              className="hover:text-slate-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+            >
+              {link.label}
+            </a>
+          ))}
         </div>
         <p>© 2026 Scrum Guide</p>
       </div>
