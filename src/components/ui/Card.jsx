@@ -1,11 +1,11 @@
 export default function Card({ children, className = '', onClick, style }) {
   return (
-    <article
-      className={`rounded-2xl border border-gray-700 bg-gray-800 p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-xl ${className}`}
+    <div
+      className={`h-full flex flex-col rounded-2xl border border-surface-200 bg-white p-6 shadow-sm transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-md ${className}`}
       onClick={onClick}
       style={style}
     >
       {children}
-    </article>
+    </div>
   )
 }

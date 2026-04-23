@@ -14,6 +14,7 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [activeId, setActiveId] = useState('hero')
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const sectionIds = ['hero', 'terms', 'roles', 'process', 'practical', 'cautions', 'examples', 'companies']
@@ -29,19 +30,26 @@ export default function Navbar() {
           }
         })
       },
-      { threshold: 0.4 },
+      { threshold: 0.45 },
     )
 
     sections.forEach((section) => observer.observe(section))
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-700/70 bg-slate-950/70 backdrop-blur">
+    <header className={`sticky top-0 z-50 border-b border-surface-200 bg-white/80 backdrop-blur-md transition-shadow duration-200 ${scrolled ? 'shadow-sm' : ''}`}>
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#hero" className="font-bold text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400">スクラム開発 完全ガイド</a>
+        <a href="#hero" className="font-serif font-semibold text-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400">スクラム開発 完全ガイド</a>
         <button
-          className="md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+          className="text-ink-700 transition-transform duration-100 active:scale-95 md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
           onClick={() => setOpen((v) => !v)}
           type="button"
           aria-label={open ? 'メニューを閉じる' : 'メニューを開く'}
@@ -53,8 +61,10 @@ export default function Navbar() {
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                className={`relative transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 ${
-                  activeId === link.id ? 'font-medium text-indigo-400 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:bg-indigo-400 after:content-[""]' : 'text-gray-400 hover:text-white'
+                className={`relative text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 ${
+                  activeId === link.id
+                    ? "text-brand-600 after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:right-0 after:h-[2px] after:rounded-full after:bg-brand-500"
+                    : 'text-ink-500 hover:text-ink-900'
                 }`}
               >
                 {link.label}
@@ -63,14 +73,14 @@ export default function Navbar() {
           ))}
         </ul>
       </nav>
-      <div className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${open ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-        <ul className="space-y-2 border-t border-slate-700/70 px-4 pb-4 pt-2">
+      <div className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${open ? 'max-h-[400px] opacity-100' : 'pointer-events-none max-h-0 opacity-0'}`}>
+        <ul className="space-y-2 border-t border-surface-200 px-4 pb-4 pt-2">
           {links.map((link) => (
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                className={`block py-1 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 ${
-                  activeId === link.id ? 'font-medium text-indigo-400' : 'text-gray-400 hover:text-white'
+                className={`block text-sm font-medium py-1 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 ${
+                  activeId === link.id ? 'text-brand-600' : 'text-ink-500 hover:text-ink-900'
                 }`}
                 onClick={() => setOpen(false)}
               >

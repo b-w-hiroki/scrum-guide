@@ -20,10 +20,10 @@ import {
 
 function App() {
   return (
-    <div className="bg-slate-950 text-slate-100">
+    <div className="bg-surface-50 text-ink-900">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-indigo-600 focus:px-4 focus:py-2 focus:text-white focus:outline-none focus:shadow-lg"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-brand-500 focus:px-4 focus:py-2 focus:text-white focus:outline-none focus:shadow-lg"
       >
         メインコンテンツへスキップ
       </a>
