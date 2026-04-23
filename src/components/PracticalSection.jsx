@@ -25,6 +25,21 @@ export default function PracticalSection({ practicalTips }) {
     }, 150)
   }
 
+  const handleTabKeyDown = (event, index) => {
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return
+    event.preventDefault()
+    const nextIndex =
+      event.key === 'ArrowRight'
+        ? (index + 1) % practicalTips.length
+        : (index - 1 + practicalTips.length) % practicalTips.length
+    const nextCategory = practicalTips[nextIndex]?.category
+    if (!nextCategory) return
+    handleTabChange(nextCategory)
+    requestAnimationFrame(() => {
+      document.getElementById(`tab-${nextCategory}`)?.focus()
+    })
+  }
+
   return (
     <section
       id="practical"
@@ -33,16 +48,18 @@ export default function PracticalSection({ practicalTips }) {
         isInView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
       }`}
     >
-      <h2 className="mb-8 text-3xl font-bold">実用的な使い方</h2>
+      <h2 className="mb-8 text-3xl font-bold font-serif">実用的な使い方</h2>
       <div className="mb-4 flex flex-wrap gap-2" role="tablist" aria-label="実用的な使い方のカテゴリ">
-        {practicalTips.map((tip) => (
+        {practicalTips.map((tip, index) => (
           <button
             key={tip.category}
             type="button"
             role="tab"
             aria-selected={active === tip.category}
             aria-controls={`tabpanel-${tip.category}`}
+            id={`tab-${tip.category}`}
             onClick={() => handleTabChange(tip.category)}
+            onKeyDown={(event) => handleTabKeyDown(event, index)}
             className={`rounded-lg border px-4 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 ${
               active === tip.category
                 ? 'border-indigo-600 bg-indigo-600 text-white shadow-md'
@@ -56,6 +73,8 @@ export default function PracticalSection({ practicalTips }) {
       <div
         role="tabpanel"
         id={`tabpanel-${current.category}`}
+        aria-labelledby={`tab-${current.category}`}
+        tabIndex={0}
         className={`grid grid-cols-1 gap-4 transition-opacity duration-200 md:grid-cols-2 ${visible ? 'opacity-100' : 'opacity-0'}`}
       >
         {current.items.map((item) => (

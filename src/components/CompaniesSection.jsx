@@ -3,12 +3,12 @@ import SectionHeader from './ui/SectionHeader'
 import Badge from './ui/Badge'
 import { useInView } from '../hooks/useInView'
 
-const filters = [
-  { key: 'all', label: 'すべて' },
-  { key: 'tech', label: '海外テック' },
-  { key: 'jp', label: '日本企業' },
-  { key: 'non-tech', label: 'その他業界' },
-]
+const FILTER_LABELS = {
+  all: 'すべて',
+  tech: '海外テック',
+  jp: '日本企業',
+  'non-tech': 'その他業界',
+}
 
 export default function CompaniesSection({ companies }) {
   const [sectionRef, isInView] = useInView({ threshold: 0.15, triggerOnce: true })
@@ -19,7 +19,7 @@ export default function CompaniesSection({ companies }) {
     () => (active === 'all' ? companies : companies.filter((item) => item.category === active)),
     [active, companies],
   )
-  const filterLabels = useMemo(() => Object.fromEntries(filters.map((f) => [f.key, f.label])), [])
+  const filters = useMemo(() => Object.entries(FILTER_LABELS).map(([key, label]) => ({ key, label })), [])
 
   const handleFilterChange = (nextKey) => {
     if (nextKey === active) return
@@ -54,7 +54,7 @@ export default function CompaniesSection({ companies }) {
             onClick={() => handleFilterChange(f.key)}
             className={`rounded-full px-4 py-1.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 ${
               active === f.key
-                ? 'border border-transparent bg-indigo-600 text-white shadow-sm shadow-indigo-900'
+                ? 'border border-transparent bg-indigo-600 text-white shadow-sm'
                 : 'border border-gray-700 text-gray-400 hover:border-gray-500 hover:text-gray-200'
             }`}
           >
@@ -65,7 +65,7 @@ export default function CompaniesSection({ companies }) {
       <div className={`grid grid-cols-1 gap-4 transition-opacity duration-200 md:grid-cols-2 ${visible ? 'opacity-100' : 'opacity-0'}`}>
         {list.map((company) => (
           <article key={company.name} className="relative rounded-2xl border border-slate-700 bg-slate-900 p-5">
-            <Badge label={filterLabels[company.category]} className="absolute right-3 top-3" />
+            <Badge label={FILTER_LABELS[company.category] || company.category} className="absolute right-3 top-3" />
             <h3 className="mb-1 text-xl font-semibold">{company.name}</h3>
             <p className="mb-2 text-sm text-brand-teal">{company.country}</p>
             <p className="text-sm text-slate-300">{company.description}</p>

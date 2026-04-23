@@ -1,7 +1,9 @@
 const colorMap = {
   indigo: 'bg-indigo-900 text-indigo-300',
+  blue: 'bg-blue-900 text-blue-300',
   green: 'bg-green-900 text-green-300',
   orange: 'bg-orange-900 text-orange-300',
+  purple: 'bg-purple-900 text-purple-300',
   gray: 'bg-gray-700 text-gray-300',
 }
 

@@ -11,6 +11,10 @@ export default {
           dark: '#0a0a0f',
         },
       },
+      fontFamily: {
+        serif: ['"Noto Serif JP"', 'serif'],
+        sans: ['"Noto Sans JP"', 'sans-serif'],
+      },
     },
   },
   plugins: [],

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-export function useInView(options = {}) {
+export function useInView({ threshold = 0.15, triggerOnce = true } = {}) {
   const ref = useRef(null)
   const [isInView, setIsInView] = useState(false)
 
@@ -9,12 +9,10 @@ export function useInView(options = {}) {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true)
-          if (options.triggerOnce) observer.disconnect()
-        } else if (!options.triggerOnce) {
-          setIsInView(false)
+          if (triggerOnce) observer.disconnect()
         }
       },
-      { threshold: 0.15, ...options },
+      { threshold },
     )
 
     if (ref.current) observer.observe(ref.current)

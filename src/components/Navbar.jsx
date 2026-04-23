@@ -53,7 +53,7 @@ export default function Navbar() {
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                className={`relative transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 ${
+                className={`relative transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 ${
                   activeId === link.id ? 'font-medium text-indigo-400 after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:bg-indigo-400 after:content-[""]' : 'text-gray-400 hover:text-white'
                 }`}
               >
@@ -69,7 +69,7 @@ export default function Navbar() {
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                className={`block py-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 ${
+                className={`block py-1 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 ${
                   activeId === link.id ? 'font-medium text-indigo-400' : 'text-gray-400 hover:text-white'
                 }`}
                 onClick={() => setOpen(false)}

@@ -22,13 +22,13 @@ function App() {
   return (
     <div className="bg-slate-950 text-slate-100">
       <a
-        href="#main"
-        className="sr-only absolute left-3 top-3 z-[60] rounded bg-indigo-600 px-3 py-2 text-sm text-white focus:not-sr-only focus:outline-none focus:ring-2 focus:ring-indigo-300"
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-indigo-600 focus:px-4 focus:py-2 focus:text-white focus:outline-none focus:shadow-lg"
       >
         メインコンテンツへスキップ
       </a>
       <Navbar />
-      <main id="main">
+      <main id="main-content">
         <Hero />
         <TermsSection terms={terms} />
         <RolesSection roles={roles} />

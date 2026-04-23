@@ -1,4 +1,5 @@
 import { useInView } from '../hooks/useInView'
+import SectionHeader from './ui/SectionHeader'
 
 export default function ExamplesSection({ examples }) {
   const [sectionRef, isInView] = useInView({ threshold: 0.15, triggerOnce: true })
@@ -11,7 +12,7 @@ export default function ExamplesSection({ examples }) {
         isInView ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
       }`}
     >
-      <h2 className="mb-8 text-3xl font-bold">実例・ケーススタディ</h2>
+      <SectionHeader label="examples" title="実例・ケーススタディ" />
       <div className="space-y-5">
         {examples.map((item) => (
           <article key={item.title} className="rounded-2xl border border-slate-700 bg-slate-900 p-5">

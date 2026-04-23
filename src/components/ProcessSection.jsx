@@ -2,12 +2,12 @@ import Badge from './ui/Badge'
 import SectionHeader from './ui/SectionHeader'
 import { useInView } from '../hooks/useInView'
 
-const getParticipantColor = (participant) => {
-  if (participant === 'PO') return 'indigo'
-  if (participant === 'SM') return 'green'
-  if (participant === '開発チーム') return 'orange'
-  if (participant.includes('全員')) return 'indigo'
-  return 'gray'
+const PARTICIPANT_COLOR = {
+  PO: 'purple',
+  SM: 'green',
+  開発チーム: 'orange',
+  全員: 'blue',
+  '全員 + ステークホルダー': 'blue',
 }
 
 export default function ProcessSection({ sprintProcess }) {
@@ -33,7 +33,7 @@ export default function ProcessSection({ sprintProcess }) {
             <p className="mb-2 text-slate-300">{step.description}</p>
             <div className="flex flex-wrap gap-2 pb-2">
               {step.participants.map((p) => (
-                <Badge key={p} label={p} color={getParticipantColor(p)} />
+                <Badge key={p} label={p} color={PARTICIPANT_COLOR[p] || 'gray'} />
               ))}
             </div>
             {idx === sprintProcess.length - 1 ? null : <div className="absolute -bottom-5 -left-[1px] h-5 border-l-2 border-indigo-800" />}
