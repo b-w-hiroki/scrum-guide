@@ -1,3 +1,4 @@
+import QuickHelp from './components/QuickHelp'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TermsSection from './components/TermsSection'
@@ -30,6 +31,7 @@ function App() {
       <Navbar />
       <main id="main-content">
         <Hero />
+        <QuickHelp />
         <TermsSection terms={terms} />
         <RolesSection roles={roles} />
         <ProcessSection sprintProcess={sprintProcess} />

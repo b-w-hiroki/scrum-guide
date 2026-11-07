@@ -1,16 +1,13 @@
-# React + Vite
+# スクラム開発ガイド
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+用語・役割・イベントと、困った場面から使える問いをまとめたReact/Viteサイトです。
 
-Currently, two official plugins are available:
+## 起動・検証
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+`npm ci` → `npm run dev`。変更後は `npm run lint` と `npm run build` を実行します。
 
-## React Compiler
+## 編集
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+本文は `src/data/scrumData.js`、場面別早見表は `src/components/QuickHelp.jsx`。
+公式定義は [Scrum Guide 2020](https://scrumguides.org/download.html) を参照してください。
+企業事例や実践上のヒントは公式ルールと区別し、更新時に出典と確認時点を照合します。
