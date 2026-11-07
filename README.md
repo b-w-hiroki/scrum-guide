@@ -1,16 +1,34 @@
-# React + Vite
+# スクラム開発 完全ガイド
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+スクラム開発を初めて学ぶエンジニア・PM・デザイナー向けに、用語・役割・進め方を解説する日本語のシングルページサイトです。
 
-Currently, two official plugins are available:
+## 公開サイト
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://b-w-hiroki.github.io/scrum-guide/
 
-## React Compiler
+## 内容
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- スクラム用語集（スプリント、プロダクトバックログ、デイリースクラムなど13語）
+- 3つの役割（プロダクトオーナー、スクラムマスター、開発チーム）
+- スクラムの流れ（計画 → デイリー → 開発 → レビュー → レトロスペクティブの5ステップ）
+- 実用的な使い方（Jira、Notion、GitHub Projects、Miro）
+- 注意点・アンチパターン
+- 実例・ケーススタディ
+- スクラムを活用している企業
 
-## Expanding the ESLint configuration
+コンテンツは `src/data/scrumData.js` に集約し、セクションごとに `src/components/` のコンポーネントで表示します。
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 仕様
+
+実装仕様は [docs/spec.md](docs/spec.md) を参照してください。
+
+## 開発
+
+```bash
+npm install
+npm run dev      # 開発サーバー
+npm run build    # ビルド
+npm run lint     # ESLint
+```
+
+React + Vite + Tailwind CSS で構築しています。`master` への push で GitHub Pages へ自動デプロイされます（`.github/workflows/deploy-pages.yml`）。
