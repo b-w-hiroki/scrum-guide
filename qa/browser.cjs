@@ -32,6 +32,9 @@ const server=createServer((req,res)=>{
         await page.getByRole('button',{name:'メニューを閉じる'}).waitFor();
         await page.keyboard.press('Enter');
         await page.getByRole('button',{name:'メニューを開く'}).waitFor();
+        assert.equal(await menu.getAttribute('aria-expanded'),'false');
+        await page.keyboard.press('Tab');
+        assert.equal(await page.locator(':focus').evaluate(el=>!!el.closest('#mobile-navigation')),false);
       }
       await page.evaluate(()=>window.scrollTo(0,0));
       await page.screenshot({path:`qa-artifacts/hero-${width}.png`});
