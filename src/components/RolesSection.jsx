@@ -17,7 +17,8 @@ export default function RolesSection({ roles }) {
         isInView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
       }`}
     >
-      <SectionHeader label="roles" title="3つの役割" />
+      <SectionHeader label="roles" title="3つの責任（accountabilities）" />
+      <p className="mb-6 text-sm text-ink-700">PO・SM・開発者で一つのスクラムチームを構成します。2020年版ではチーム全体を通常10人以下としています。</p>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
         {roles.map((role) => (
           <article key={role.id} className="rounded-2xl border border-surface-200 bg-white shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">

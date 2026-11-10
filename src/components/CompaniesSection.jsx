@@ -45,13 +45,15 @@ export default function CompaniesSection({ companies }) {
         isInView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
       }`}
     >
-      <SectionHeader label="companies" title="活用している企業" />
+      <SectionHeader label="companies" title="企業事例（出典確認待ち）" />
+      <p className="mb-6 text-sm text-ink-700">各社の採用状況・数値は一次資料と未照合です。現在の全社方針や導入効果の根拠として使わず、個別の出典確認が必要です。</p>
       <div className="mb-4 flex flex-wrap gap-2">
         {filters.map((f) => (
           <button
             key={f.key}
             type="button"
             onClick={() => handleFilterChange(f.key)}
+            aria-pressed={active === f.key}
             className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all duration-150 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 ${
               active === f.key
                 ? 'border border-transparent bg-brand-500 text-white shadow-md shadow-brand-200 hover:bg-brand-600'

@@ -12,7 +12,8 @@ export default function ExamplesSection({ examples }) {
         isInView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
       }`}
     >
-      <SectionHeader label="examples" title="実例・ケーススタディ" />
+      <SectionHeader label="examples" title="説明用ケース" />
+      <p className="mb-6 text-sm text-ink-700">理解を助けるための例です。記載された人数や改善結果を、実在組織の検証済み実績としては扱わないでください。</p>
       <div className="space-y-5">
         {examples.map((item) => (
           <article key={item.title} className="rounded-2xl border border-surface-200 bg-white p-5 shadow-sm">
@@ -31,6 +32,7 @@ export default function ExamplesSection({ examples }) {
             <ul className="mt-4 space-y-1 text-sm text-ink-700">
               {item.points.map((point) => <li key={point}><span className="mr-2 font-bold text-brand-500">✓</span>{point}</li>)}
             </ul>
+            <p className="mt-4 text-sm font-medium text-brand-600">次に試すこと: {item.nextAction}</p>
           </article>
         ))}
       </div>

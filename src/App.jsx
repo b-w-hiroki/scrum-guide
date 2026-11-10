@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import ReferenceNote from './components/ReferenceNote'
 import Hero from './components/Hero'
 import TermsSection from './components/TermsSection'
 import RolesSection from './components/RolesSection'
@@ -30,6 +31,7 @@ function App() {
       <Navbar />
       <main id="main-content">
         <Hero />
+        <ReferenceNote />
         <TermsSection terms={terms} />
         <RolesSection roles={roles} />
         <ProcessSection sprintProcess={sprintProcess} />
