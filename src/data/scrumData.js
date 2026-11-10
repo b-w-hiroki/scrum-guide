@@ -1,17 +1,27 @@
+// Reference facts checked against the official source on 2026-11-10 (UTC).
+export const scrumReference = {
+  edition: '2020年11月版',
+  checkedAt: '2026-11-10',
+  authors: 'Ken Schwaber / Jeff Sutherland',
+  officialUrl: 'https://scrumguides.org/scrum-guide.html',
+  japaneseUrl: 'https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Japanese.pdf',
+  revisionsUrl: 'https://scrumguides.org/revisions.html',
+}
+
 export const terms = [
-  { id: 1, term: 'スプリント（Sprint）', definition: '開発の基本サイクル。通常1〜4週間の固定期間で、計画→実行→レビュー→振り返りを繰り返す。', color: 'purple', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
+  { id: 1, term: 'スプリント（Sprint）', definition: '1か月以内の固定期間。計画・日々の作業・レビュー・振り返りをその中で行う。', color: 'purple', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
   { id: 2, term: 'プロダクトバックログ', definition: 'プロダクトに必要な機能・改善・バグ修正をすべてリスト化したもの。POが優先順位をつけて管理する。', color: 'blue', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
-  { id: 3, term: 'スプリントバックログ', definition: '1スプリントで実施するタスクの一覧。スプリント計画ミーティングでチームが選択する。', color: 'teal', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
-  { id: 4, term: 'デイリースクラム（Daily Scrum）', definition: '毎朝15分以内の立ちミーティング。昨日やったこと・今日やること・障害の3点を共有する。', color: 'green', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
-  { id: 5, term: 'スプリントレビュー', definition: 'スプリント終了時にステークホルダーに成果物をデモし、フィードバックをもらう会議。', color: 'yellow', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
+  { id: 3, term: 'スプリントバックログ', definition: 'スプリントゴール、選んだバックログ項目、実現するための計画。開発者が学びに応じて更新する。', color: 'teal', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
+  { id: 4, term: 'デイリースクラム（Daily Scrum）', definition: '開発者が毎営業日15分でゴールへの進み具合を確認し、次の作業を調整する。朝・立席・三つの質問は必須ではない。', color: 'green', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
+  { id: 5, term: 'スプリントレビュー', definition: 'スクラムチームと関係者が成果と環境の変化を確認し、次の対応を考える場。デモだけに限定しない。', color: 'yellow', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
   { id: 6, term: 'スプリントレトロスペクティブ', definition: 'スプリントの進め方を振り返り、次スプリントの改善点を決める内部ミーティング。', color: 'orange', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
-  { id: 7, term: 'ベロシティ（Velocity）', definition: '1スプリントでチームが完了できる作業量の指標。ストーリーポイントで測定する。', color: 'red', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
-  { id: 8, term: 'ユーザーストーリー', definition: '「〇〇として、△△したい。なぜなら□□だから」の形式でユーザー視点の要求を記述したもの。', color: 'pink', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
-  { id: 9, term: 'ストーリーポイント', definition: 'タスクの複雑さ・不確実性・工数を相対的に見積もる単位。時間ではなく相対値を使う。', color: 'purple', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
+  { id: 7, optionalPractice: true, term: 'ベロシティ（Velocity）', definition: '1スプリントでチームが完了できる作業量の指標。ストーリーポイントで測定する。', color: 'red', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
+  { id: 8, optionalPractice: true, term: 'ユーザーストーリー', definition: '「〇〇として、△△したい。なぜなら□□だから」の形式でユーザー視点の要求を記述したもの。', color: 'pink', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
+  { id: 9, optionalPractice: true, term: 'ストーリーポイント', definition: 'タスクの複雑さ・不確実性・工数を相対的に見積もる単位。時間ではなく相対値を使う。', color: 'purple', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
   { id: 10, term: 'Definition of Done（DoD）', definition: '「完了」と見なすための合意基準。コードレビュー・テスト通過・デプロイ完了など具体的に定義する。', color: 'blue', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
-  { id: 11, term: 'インクリメント', definition: 'スプリント終了時に得られる、動作する成果物の積み上げ。リリース可能な状態であることが望ましい。', color: 'teal', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
-  { id: 12, term: 'スクラムボード', definition: 'Todo・In Progress・Doneなどのカラムでタスク状況を可視化するボード。JiraやNotionで管理。', color: 'green', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
-  { id: 13, term: 'バーンダウンチャート', definition: 'スプリント内の残作業量を日々グラフ化したもの。進捗の遅れを早期に発見するために使う。', color: 'yellow', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
+  { id: 11, term: 'インクリメント', definition: '完成の定義を満たし、利用できる成果の増分。スプリント中にも届けられ、レビューはリリースの承認ゲートではない。', color: 'teal', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
+  { id: 12, optionalPractice: true, term: 'スクラムボード', definition: 'Todo・In Progress・Doneなどのカラムでタスク状況を可視化するボード。JiraやNotionで管理。', color: 'green', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
+  { id: 13, optionalPractice: true, term: 'バーンダウンチャート', definition: 'スプリント内の残作業量を日々グラフ化したもの。進捗の遅れを早期に発見するために使う。', color: 'yellow', accentClass: 'bg-gradient-to-r from-brand-400 to-brand-600' },
 ]
 
 export const roles = [
@@ -27,26 +37,26 @@ export const roles = [
     id: 'sm',
     title: 'スクラムマスター（SM）',
     icon: '🛡️',
-    responsibilities: ['スクラムプロセスの正しい実践を支援', 'チームの障害・ブロッカーを除去', '各種セレモニーのファシリテーション', 'チームの自己組織化を促進', '組織へのスクラム文化の定着支援'],
+    responsibilities: ['スクラムプロセスの正しい実践を支援', 'チームの障害・ブロッカーを除去', '各種セレモニーのファシリテーション', 'チームの自己管理を支援', '組織へのスクラム文化の定着支援'],
     mindset: '「どう進めるか」を守る人',
     color: 'from-green-600 to-teal-600',
   },
   {
     id: 'dev',
-    title: '開発チーム',
+    title: '開発者（Developers）',
     icon: '⚙️',
-    responsibilities: ['スプリントバックログの実行', '自己組織的にタスクを分担・完了', 'クロスファンクショナルなスキルを持つ（3〜9人推奨）', 'デイリースクラムでの透明な進捗共有', 'Definition of Doneを満たす品質の担保'],
+    responsibilities: ['スプリントバックログの実行', '自分たちで作業の分担・進め方を決める', 'チーム全体で価値の提供に必要なスキルを備える', 'デイリースクラムでの透明な進捗共有', 'Definition of Doneを満たす品質の担保'],
     mindset: '「作る」責任を持つ人たち',
     color: 'from-orange-600 to-red-600',
   },
 ]
 
 export const sprintProcess = [
-  { step: 1, name: 'スプリント計画', duration: 'スプリント開始日（2〜4時間）', description: 'バックログから今スプリントでやるタスクを選定し、スプリントゴールを設定する。', participants: ['PO', 'SM', '開発チーム'] },
-  { step: 2, name: 'デイリースクラム', duration: '毎朝15分', description: '進捗・今日の作業・ブロッカーを共有。問題解決は別途オフラインで行う。', participants: ['SM', '開発チーム'] },
-  { step: 3, name: '開発・実装', duration: 'スプリント期間中', description: 'チームが自律的にタスクを実行。ボードを随時更新し、透明性を保つ。', participants: ['開発チーム'] },
-  { step: 4, name: 'スプリントレビュー', duration: 'スプリント最終日（1〜2時間）', description: '完成した成果物をデモ。ステークホルダーからフィードバックをもらい、バックログを更新。', participants: ['全員 + ステークホルダー'] },
-  { step: 5, name: 'レトロスペクティブ', duration: 'スプリント最終日（1〜1.5時間）', description: 'チーム内部でKPT（Keep/Problem/Try）などを使い、プロセス改善点を議論して次に活かす。', participants: ['SM', '開発チーム'] },
+  { step: 1, name: 'スプリント計画', duration: '1か月スプリントでは最大8時間。短いスプリントでは通常より短くする', description: 'バックログから今スプリントでやるタスクを選定し、スプリントゴールを設定する。', participants: ['PO', 'SM', '開発者'] },
+  { step: 2, name: 'デイリースクラム', duration: '毎営業日15分', description: '開発者がゴールへの進捗を確認して次の作業を調整する。POやSMもバックログの作業を行う場合は開発者として参加する。', participants: ['開発者'] },
+  { step: 3, name: '開発・実装', duration: 'スプリント期間中', description: 'チームが自律的にタスクを実行。ボードを随時更新し、透明性を保つ。', participants: ['開発者'] },
+  { step: 4, name: 'スプリントレビュー', duration: '1か月スプリントでは最大4時間。短いスプリントでは通常より短くする', description: '完成した成果物をデモ。ステークホルダーからフィードバックをもらい、バックログを更新。', participants: ['全員 + ステークホルダー'] },
+  { step: 5, name: 'レトロスペクティブ', duration: '1か月スプリントでは最大3時間。短いスプリントでは通常より短くする', description: 'チーム内部でKPT（Keep/Problem/Try）などを使い、プロセス改善点を議論して次に活かす。', participants: ['PO', 'SM', '開発者'] },
 ]
 
 export const practicalTips = [
@@ -57,17 +67,17 @@ export const practicalTips = [
 
 export const cautions = [
   { type: 'antipattern', title: 'スクラムの形だけやる', description: 'セレモニーはやるが、バックログが整理されていない・チームに自律性がない状態。', solution: 'SMがプロセスの目的を繰り返し説明し、各イベントの意義を体感させる。' },
-  { type: 'antipattern', title: 'スプリント中に要件変更を受け入れる', description: 'スプリントゴールが守られず、チームの集中が分散する。', solution: 'スプリント中の割り込みはバックログに積み、次スプリントで対応する運用ルールを設ける。' },
+  { type: 'antipattern', title: 'スプリントゴールを危険にさらす変更', description: 'スプリントゴールが守られず、チームの集中が分散する。', solution: '一律に変更を禁止せず、学びに応じてPOと開発者が範囲を調整する。ゴールと品質は守る。' },
   { type: 'antipattern', title: 'デイリーが進捗報告会になる', description: 'SMやPOへの報告の場になり、チームの協力・障害除去の機能が失われる。', solution: '「チームのための15分」という認識を徹底。報告ではなく同期と障害共有の場にする。' },
   { type: 'antipattern', title: 'ベロシティを目標にする', description: 'ポイントを稼ぐためにタスクを細分化・水増しする本末転倒な状態になる。', solution: 'ベロシティは計画精度向上のための参考値。ビジネス価値の提供を最優先指標にする。' },
-  { type: 'caution', title: 'スプリント期間は短すぎず長すぎず', description: '1週間では計画コストが高くなり、4週間では方向転換が遅れる。', solution: '2週間スプリントから始めるのが多くのチームに合う黄金標準。' },
-  { type: 'caution', title: 'POが忙しすぎる問題', description: 'POが不在がちだとバックログが陳腐化し、チームが迷走する。', solution: 'POは週の20〜30%をスクラム関連活動に充てる体制を組織レベルで確保する。' },
+  { type: 'caution', title: 'スプリント期間は短すぎず長すぎず', description: '1週間では計画コストが高くなり、4週間では方向転換が遅れる。', solution: '1か月以内で一定の期間を選び、学習とリスクに合う長さを検討する。2週間は必須ではない。' },
+  { type: 'caution', title: 'POが忙しすぎる問題', description: 'POが不在がちだとバックログが陳腐化し、チームが迷走する。', solution: '必要な意思決定や対話に対応できる体制を確保する。ガイドは一律の稼働割合を定めていない。' },
 ]
 
 export const examples = [
-  { title: '新機能リリースサイクルの短縮', context: '30人規模のSaaS企業・開発チーム8名', before: 'ウォーターフォールで半年に1度リリース。要件ずれが多発し手戻りコスト大。', after: '2週間スプリントに切り替え、月1〜2回のリリースを実現。顧客フィードバックループが劇的に改善。', points: ['スプリントレビューに顧客を招待', 'バックログをユーザーストーリー形式に統一', 'CIパイプライン整備でDoD達成コストを削減'] },
-  { title: 'リモートチームでのスクラム導入', context: 'フルリモート・4カ国分散チーム', before: '非同期コミュニケーションが主で、進捗が不透明。タスクの重複や抜け漏れが頻発。', after: 'Miro + Jira でスクラムボードをオンライン化。デイリースクラムをビデオ会議で実施し、透明性が向上。', points: ['タイムゾーンを考慮した固定スプリントカレンダー設定', 'レトロはMiroの付箋ボードを活用', 'チームアグリーメントをNotionで可視化'] },
-  { title: 'スタートアップの初期プロダクト開発', context: '5人スタートアップ（エンジニア3・デザイナー1・PO兼CEO1）', before: 'タスクが属人化し、何が終わっているか誰も把握できない状態。', after: '1週間スプリントでMVP機能を週次でリリース。投資家へのデモ資料がスプリントレビューそのものになった。', points: ['SMはエンジニアリーダーが兼任（小規模チームのため）', 'プランニングポーカーで見積もりの認識合わせ', 'レトロでスタックしている技術的負債を定期的に棚卸し'] },
+  { nextAction: '今のリリース頻度と完成の定義を記録し、短い期間で一つの成果を届けて比較する。', title: '新機能リリースサイクルの短縮', context: '30人規模のSaaS企業・開発チーム8名', before: 'ウォーターフォールで半年に1度リリース。要件ずれが多発し手戻りコスト大。', after: '2週間スプリントに切り替え、月1〜2回のリリースを実現。顧客フィードバックループが劇的に改善。', points: ['スプリントレビューに顧客を招待', 'バックログをユーザーストーリー形式に統一', 'CIパイプライン整備でDoD達成コストを削減'] },
+  { nextAction: 'チームが相談できる時間帯と共有する作業情報を決め、次の振り返りで確かめる。', title: 'リモートチームでのスクラム導入', context: 'フルリモート・4カ国分散チーム', before: '非同期コミュニケーションが主で、進捗が不透明。タスクの重複や抜け漏れが頻発。', after: 'Miro + Jira でスクラムボードをオンライン化。デイリースクラムをビデオ会議で実施し、透明性が向上。', points: ['タイムゾーンを考慮した固定スプリントカレンダー設定', 'レトロはMiroの付箋ボードを活用', 'チームアグリーメントをNotionで可視化'] },
+  { nextAction: '次に確かめたい利用者の課題を一つ選び、ゴールと完成条件をチームで言葉にする。', title: 'スタートアップの初期プロダクト開発', context: '5人スタートアップ（エンジニア3・デザイナー1・PO兼CEO1）', before: 'タスクが属人化し、何が終わっているか誰も把握できない状態。', after: '1週間スプリントでMVP機能を週次でリリース。投資家へのデモ資料がスプリントレビューそのものになった。', points: ['SMはエンジニアリーダーが兼任（小規模チームのため）', 'プランニングポーカーで見積もりの認識合わせ', 'レトロでスタックしている技術的負債を定期的に棚卸し'] },
 ]
 
 export const companies = [

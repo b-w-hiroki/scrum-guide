@@ -5,7 +5,7 @@ import { useInView } from '../hooks/useInView'
 const PARTICIPANT_COLOR = {
   PO: 'purple',
   SM: 'green',
-  開発チーム: 'orange',
+  開発者: 'orange',
   全員: 'blue',
   '全員 + ステークホルダー': 'blue',
 }
@@ -22,6 +22,7 @@ export default function ProcessSection({ sprintProcess }) {
       }`}
     >
       <SectionHeader label="process" title="スクラムの流れ" />
+      <p className="mb-6 text-sm text-ink-700">すべてスプリントの中で行います。「開発・実装」は別の公式イベントではありません。時間は2020年版の上限を示し、固定の所要時間ではありません。</p>
       <div className="space-y-6">
         {sprintProcess.map((step, idx) => (
           <div key={step.step} className="relative ml-6 pl-10">

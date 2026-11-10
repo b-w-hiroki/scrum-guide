@@ -28,6 +28,7 @@ export default function TermsSection({ terms }) {
             <div className={`mb-4 h-1 rounded-full ${item.accentClass || 'bg-gradient-to-r from-brand-400 to-brand-600'}`} />
             <h3 className="mb-2 font-serif text-lg font-semibold text-ink-900">{item.term}</h3>
             <p className="flex-grow text-sm leading-relaxed text-ink-700">{item.definition}</p>
+            {item.optionalPractice && <p className="mt-3 text-xs font-medium text-ink-500">補助的な実践。Scrum Guideが必須とする方法ではありません。</p>}
           </Card>
         ))}
       </div>

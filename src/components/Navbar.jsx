@@ -53,6 +53,8 @@ export default function Navbar() {
           onClick={() => setOpen((v) => !v)}
           type="button"
           aria-label={open ? 'メニューを閉じる' : 'メニューを開く'}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
         >
           {open ? '✕' : '☰'}
         </button>
@@ -73,7 +75,7 @@ export default function Navbar() {
           ))}
         </ul>
       </nav>
-      <div className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${open ? 'max-h-[400px] opacity-100' : 'pointer-events-none max-h-0 opacity-0'}`}>
+      <div id="mobile-navigation" inert={!open} className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${open ? 'max-h-[400px] opacity-100' : 'pointer-events-none max-h-0 opacity-0'}`}>
         <ul className="space-y-2 border-t border-surface-200 px-4 pb-4 pt-2">
           {links.map((link) => (
             <li key={link.id}>

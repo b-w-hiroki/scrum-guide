@@ -1,0 +1,29 @@
+name: Browser layout and keyboard QA
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm run build
+      - run: npm install --prefix "$RUNNER_TEMP/scrum-qa" --no-audit --no-fund --ignore-scripts playwright@1.56.1
+      - run: node "$RUNNER_TEMP/scrum-qa/node_modules/playwright/cli.js" install --with-deps chromium
+      - run: node qa/browser.cjs
+        env:
+          NODE_PATH: ${{ runner.temp }}/scrum-qa/node_modules
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scrum-browser-screenshots
+          path: qa-artifacts/
+          retention-days: 7
