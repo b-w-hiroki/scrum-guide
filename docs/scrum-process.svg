@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 400" font-family="sans-serif">
+  <rect width="1240" height="400" fill="#ffffff"/>
+  <text x="40" y="52" font-size="24" font-weight="700" fill="#1f2937">スクラムの流れ（1スプリント）</text>
+  <text x="40" y="82" font-size="14" fill="#6b7280">スプリントは1〜4週間の固定期間。終わるたびに動く成果物（インクリメント）を出す。</text>
+
+  <!-- boxes row -->
+  <g font-size="17" font-weight="700" fill="#1f2937">
+    <rect x="40" y="130" width="200" height="86" rx="8" fill="#ffffff" stroke="#1f2937" stroke-width="1.5"/>
+    <text x="140" y="168" text-anchor="middle">プロダクト</text>
+    <text x="140" y="194" text-anchor="middle">バックログ</text>
+
+    <rect x="290" y="130" width="200" height="86" rx="8" fill="#eef7f5" stroke="#0f766e" stroke-width="1.5"/>
+    <text x="390" y="168" text-anchor="middle">スプリント</text>
+    <text x="390" y="194" text-anchor="middle">プランニング</text>
+
+    <rect x="540" y="130" width="200" height="86" rx="8" fill="#eef7f5" stroke="#0f766e" stroke-width="1.5"/>
+    <text x="640" y="168" text-anchor="middle">スプリント実施</text>
+    <text x="640" y="194" text-anchor="middle" font-size="13" font-weight="400" fill="#4b5563">毎日: デイリースクラム</text>
+
+    <rect x="790" y="130" width="200" height="86" rx="8" fill="#eef7f5" stroke="#0f766e" stroke-width="1.5"/>
+    <text x="890" y="168" text-anchor="middle">スプリント</text>
+    <text x="890" y="194" text-anchor="middle">レビュー</text>
+
+    <rect x="1040" y="130" width="170" height="86" rx="8" fill="#eef7f5" stroke="#0f766e" stroke-width="1.5"/>
+    <text x="1125" y="168" text-anchor="middle">レトロスペ</text>
+    <text x="1125" y="194" text-anchor="middle">クティブ</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#1f2937" stroke-width="1.5" fill="none">
+    <path d="M244 173h40"/><path d="M278 167l8 6-8 6" fill="#1f2937"/>
+    <path d="M494 173h40"/><path d="M528 167l8 6-8 6" fill="#1f2937"/>
+    <path d="M744 173h40"/><path d="M778 167l8 6-8 6" fill="#1f2937"/>
+    <path d="M994 173h40"/><path d="M1028 167l8 6-8 6" fill="#1f2937"/>
+  </g>
+
+  <!-- increment output -->
+  <rect x="790" y="252" width="200" height="54" rx="8" fill="#0f766e"/>
+  <text x="890" y="286" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">インクリメント</text>
+  <path d="M890 220v26" stroke="#1f2937" stroke-width="1.5" fill="none"/>
+  <path d="M884 240l6 8 6-8" fill="#1f2937"/>
+
+  <!-- loop back -->
+  <path d="M1125 220v110H140v-110" stroke="#0f766e" stroke-width="1.5" fill="none"/>
+  <path d="M134 228l6-10 6 10" fill="#0f766e"/>
+  <text x="632" y="356" text-anchor="middle" font-size="14" fill="#0f766e">ふりかえりを次のバックログとプランニングに反映して繰り返す</text>
+</svg>

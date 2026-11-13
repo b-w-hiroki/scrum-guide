@@ -2,6 +2,8 @@
 
 スクラム開発を初めて学ぶエンジニア・PM・デザイナー向けに、用語・役割・進め方を解説する日本語のシングルページサイトです。
 
+![スクラムの流れ（1スプリント）](docs/scrum-process.svg)
+
 ## 公開サイト
 
 https://b-w-hiroki.github.io/scrum-guide/
